@@ -1,0 +1,7 @@
+{
+  "name": "ubecare",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
