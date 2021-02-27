@@ -1,0 +1,17 @@
+export enum AppIconesEnum {
+  ANGLE_DOWN = 'angle-down',
+  ANGLE_LEFT = 'angle-left',
+  ANGLE_UP = 'angle-up',
+  ANGLE_RIGHT = 'angle-right',
+  CIRCLE_CLOSE = 'circle-close',
+  CIRCLE_DENIED = 'circle-denied',
+  CIRCLE_SUCCESS = 'circle-success',
+  CIRCLE_WARNING = 'circle-warning',
+  CALENDAR = 'calendar',
+  INBOX = 'inbox',
+  SEARCH = 'search',
+  LOG_OUT = 'logout',
+  BAD_HAND = 'bad-hand',
+  PAPER = 'paper',
+  NICE_HAND = 'nice-hand',
+}

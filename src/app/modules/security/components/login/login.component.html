@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <div class="p-4 text-center">
+    <app-img
+      [width]="120"
+      [height]="120"
+      [circular]="true"
+      source="../../../../../assets/img/logo-care.jpeg"
+    ></app-img>
+  </div>
+  <div class="p-4 row justify-content-center text-center">
+    <app-input
+      class="col-12"
+      type="cpf"
+      label="Email"
+      [(value)]="user.email"
+      [maxlength]="14"
+    ></app-input>
+    <app-input
+      class="col-12"
+      type="password"
+      label="Senha"
+      [(value)]="user.password"
+    ></app-input>
+  </div>
+  <app-footer>
+    <div class="p-4 row">
+      <ion-button (click)="logIn()" class="col-12" color="primary"
+        >Entrar</ion-button
+      >
+      <small class="col-12">Esqueceu a senha?</small>
+      <small class="col-12 mt-4"
+        >Ainda não tem uma conta? <a href="">Criar conta</a>
+      </small>
+    </div>
+  </app-footer>
+</ion-content>

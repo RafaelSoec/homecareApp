@@ -1,22 +1,32 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AppRoutesEnum } from './modules/shared/models/enums/AppRoutesEnum';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: AppRoutesEnum.NONE,
+    // redirectTo: 'folder/Inbox',
+    redirectTo: AppRoutesEnum.SECURITY,
+    pathMatch: AppRoutesEnum.FULL,
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: AppRoutesEnum.HOME,
+    loadChildren: () =>
+      import('./folder/folder.module').then((m) => m.FolderPageModule),
+  },
+  {
+    path: AppRoutesEnum.SECURITY,
+    loadChildren: () =>
+      import('./modules/security/security.module').then(
+        (m) => m.SecurityPageModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
