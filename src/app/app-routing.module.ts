@@ -20,12 +20,17 @@ const routes: Routes = [
         (m) => m.SecurityPageModule
       ),
   },
+  {
+    path: AppRoutesEnum.REGISTER,
+    loadChildren: () =>
+      import('./modules/register/register.module').then(
+        (m) => m.RegisterPageModule
+      ),
+  },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

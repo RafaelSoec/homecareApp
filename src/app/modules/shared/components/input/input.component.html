@@ -1,86 +1,85 @@
-<div *ngIf="formController; else elseBlock">
-  <ion-item [ngStyle]="{ fontSize: fontSize + 'px' }">
-    <ion-label position="floating">{{ label }}</ion-label>
-    <ng-container [ngSwitch]="type">
-      <ion-input
-        *ngSwitchCase="'cpf'"
-        (ionChange)="emitVal()"
-        [id]="id"
-        [required]="required"
-        [readonly]="readonly"
-        [(ngModel)]="value"
-        [maxlength]="14"
-        [brmasker]="{ mask: '000.000.000-00', type: 'num' }"
-      ></ion-input>
-      <ion-input
-        *ngSwitchCase="'cep'"
-        (ionChange)="emitVal()"
-        [id]="id"
-        [required]="required"
-        [readonly]="readonly"
-        [(ngModel)]="value"
-        [maxlength]="9"
-        [brmasker]="{ mask: '00.000-000', type: 'num' }"
-      ></ion-input>
-      <ion-input
-        *ngSwitchCase="'password'"
-        (ionChange)="emitVal()"
-        [id]="id"
-        [required]="required"
-        [readonly]="readonly"
-        [(ngModel)]="value"
-        [type]="typeToogle ? 'text' : 'password'"
-        [maxlength]="maxlength"
-      ></ion-input>
-      <ion-input
-        *ngSwitchCase="'money'"
-        (ionChange)="emitVal()"
-        [id]="id"
-        [required]="required"
-        [readonly]="readonly"
-        [(ngModel)]="value"
-        [maxlength]="14"
-        [brmasker]="{
-          money: true,
-          thousand: '.',
-          decimalCaracter: ',',
-          decimal: 2
-        }"
-      ></ion-input>
-      <ion-input
-        *ngSwitchCase="'phone'"
-        (ionChange)="emitVal()"
-        [id]="id"
-        [required]="required"
-        [readonly]="readonly"
-        [(ngModel)]="value"
-        [type]="type"
-        [maxlength]="maxlength"
-        [brmasker]="{ phone: true }"
-      ></ion-input>
-      <ion-input
-        *ngSwitchDefault
-        (ionChange)="emitVal()"
-        [id]="id"
-        [required]="required"
-        [readonly]="readonly"
-        [(ngModel)]="value"
-        [type]="type"
-        [maxlength]="maxlength"
-      ></ion-input>
-    </ng-container>
-  </ion-item>
-</div>
-<ng-template #elseBlock>
-  <ion-item [ngStyle]="{ fontSize: fontSize + 'px' }">
-    <ion-label position="floating">{{ label }}</ion-label>
+<ion-item [ngStyle]="{ fontSize: fontSize + 'px' }">
+  <ion-label position="floating">{{ label }}</ion-label>
+  <ng-container [ngSwitch]="type">
     <ion-input
-      [id]="id"
+      *ngSwitchCase="'cpf'"
       (ionChange)="emitVal()"
-      [formControl]="formController"
+      [id]="id"
+      [required]="required"
+      [readonly]="readonly"
+      [(ngModel)]="value"
+      [maxlength]="14"
+      [brmasker]="{ mask: '000.000.000-00', type: 'num' }"
     ></ion-input>
-  </ion-item>
-</ng-template>
+    <ion-input
+      *ngSwitchCase="'cep'"
+      (ionChange)="emitVal()"
+      [id]="id"
+      [required]="required"
+      [readonly]="readonly"
+      [(ngModel)]="value"
+      [maxlength]="9"
+      [brmasker]="{ mask: '00.000-000', type: 'num' }"
+    ></ion-input>
+    <ion-input
+      *ngSwitchCase="'password'"
+      (ionChange)="emitVal()"
+      [id]="id"
+      [required]="required"
+      [readonly]="readonly"
+      [(ngModel)]="value"
+      [type]="typeToogle ? 'text' : 'password'"
+      [maxlength]="maxlength"
+    ></ion-input>
+    <ion-input
+      *ngSwitchCase="'money'"
+      (ionChange)="emitVal()"
+      [id]="id"
+      [required]="required"
+      [readonly]="readonly"
+      [(ngModel)]="value"
+      [maxlength]="14"
+      [brmasker]="{
+        money: true,
+        thousand: '.',
+        decimalCaracter: ',',
+        decimal: 2
+      }"
+    ></ion-input>
+    <ion-input
+      *ngSwitchCase="'phone'"
+      (ionChange)="emitVal()"
+      [id]="id"
+      [required]="required"
+      [readonly]="readonly"
+      [(ngModel)]="value"
+      [type]="type"
+      [maxlength]="maxlength"
+      [brmasker]="{ phone: true }"
+    ></ion-input>
+    <ion-datetime
+      *ngSwitchCase="'date'"
+      displayFormat="DD/MM/YYYY"
+      (ionChange)="emitVal()"
+      cancelText="Sair"
+      doneText="Salvar"
+      min="1900-01-01"
+      max="2200-01-01"
+      [(ngModel)]="value"
+    ></ion-datetime>
+
+    <ion-input
+      *ngSwitchDefault
+      (ionChange)="emitVal()"
+      [id]="id"
+      [required]="required"
+      [readonly]="readonly"
+      [(ngModel)]="value"
+      [type]="type"
+      [maxlength]="maxlength"
+    ></ion-input>
+  </ng-container>
+</ion-item>
 <ion-toggle
   *ngIf="type == 'password'"
   class="float-right"
@@ -88,7 +87,8 @@
   [(ngModel)]="typeToogle"
 ></ion-toggle>
 <app-text-msg
+  *ngIf="showValidation"
   type="danger"
-  [valid]="validation.validate"
+  [validated]="validation.validate"
   [text]="validation.text"
 ></app-text-msg>

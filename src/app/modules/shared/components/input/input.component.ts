@@ -16,6 +16,9 @@ export class InputComponent implements OnInit {
   @Input('id')
   public id: string;
 
+  @Input('showValidation')
+  public showValidation: boolean = false;
+
   @Input('readonly')
   public readonly: boolean = false;
 
@@ -23,7 +26,7 @@ export class InputComponent implements OnInit {
   public required: boolean = false;
 
   @Input('validation')
-  public validation: Validation = { validate: false, text: null };
+  public validation: Validation = { validate: true, text: null };
 
   @Input('type')
   public type: string = 'text';
@@ -43,6 +46,8 @@ export class InputComponent implements OnInit {
   @Output() valueChange = new EventEmitter<any>();
 
   public typeToogle: boolean = false;
+  public customPickerOptions: any;
+  public dataRef = new Date();
 
   constructor() {}
 
@@ -58,13 +63,15 @@ export class InputComponent implements OnInit {
       this.formController.setValue(this.value);
       this.readonly = this.formController.disabled;
       this.validation.validate = this.formController.valid;
+      // this.formControllerChange.emit(this.formController);
+      // this.formController.markAsTouched();
     }
   }
 
   public emitVal(): void {
-    this.setForm();
     this.valueChange.emit(this.value);
     this.makeValidations();
+    this.setForm();
   }
 
   public makeValidations(): void {

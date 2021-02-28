@@ -1,0 +1,29 @@
+<form
+  *ngIf="form"
+  [formGroup]="form"
+  class="p-4 row justify-content-center text-center"
+>
+  <app-input
+    class="col-12"
+    type="text"
+    label="Nome"
+    [(formController)]="form.controls['nome']"
+  ></app-input>
+  <app-input
+    class="col-12"
+    type="mail"
+    label="Email"
+    [(formController)]="form.controls['mail']"
+  ></app-input>
+  <app-input
+    class="col-12"
+    type="date"
+    label="Data de Nascimento"
+    [(formController)]="form.controls['dataNascimento']"
+  ></app-input>
+  <app-text-msg
+    type="danger"
+    [validated]="validation.validate"
+    [text]="validation.text"
+  ></app-text-msg>
+</form>

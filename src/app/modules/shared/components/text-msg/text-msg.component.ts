@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./text-msg.component.scss'],
 })
 export class TextMsgComponent implements OnInit {
-  @Input('valid')
-  public valid: boolean = true;
+  @Input('validated')
+  public validated: boolean = true;
 
   @Input('fontSize')
   public fontSize: number = 12;
