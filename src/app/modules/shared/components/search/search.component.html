@@ -1,0 +1,7 @@
+<ion-searchbar
+  showCancelButton="never"
+  [placeholder]="placeholder"
+  inputmode="search"
+  animated
+  (ionInput)="emitFind($event.target.value)"
+></ion-searchbar>

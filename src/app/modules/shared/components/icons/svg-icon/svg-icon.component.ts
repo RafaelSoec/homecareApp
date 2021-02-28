@@ -14,7 +14,7 @@ export class SvgIconComponent implements OnInit {
   height: string;
 
   @Input()
-  cor: string;
+  color: string;
 
   @Input()
   id: string;

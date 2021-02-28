@@ -1,8 +1,7 @@
-@import "../../../../../theme/colors.scss";
+@import "../../../../../theme/variables.scss";
 
 ion-item {
-  font-size: 12px;
-  color: $primary;
+  color: var(--primary);
 }
 
 ion-toggle {
@@ -10,10 +9,10 @@ ion-toggle {
   width: 35px;
   height: 15px;
   border-radius: 10px;
-  border: 1px solid $secondary;
+  border: 1px solid var(--secondary);
   --handle-width: 15px;
 }
 
 ion-toggle.toggle-checked {
-  border: 1px solid $light;
+  border: 1px solid var(--light);
 }

@@ -7,21 +7,24 @@
       source="../../../../../assets/img/logo-care.jpeg"
     ></app-img>
   </div>
-  <div class="p-4 row justify-content-center text-center">
+  <form
+    *ngIf="form"
+    [formGroup]="form"
+    class="p-4 row justify-content-center text-center"
+  >
     <app-input
       class="col-12"
-      type="cpf"
+      type="mail"
       label="Email"
-      [(value)]="user.email"
-      [maxlength]="14"
+      [(formController)]="form.controls['mail']"
     ></app-input>
     <app-input
       class="col-12"
       type="password"
       label="Senha"
-      [(value)]="user.password"
+      [(formController)]="form.controls['password']"
     ></app-input>
-  </div>
+  </form>
   <app-footer>
     <div class="p-4 row">
       <ion-button (click)="logIn()" class="col-12" color="primary"

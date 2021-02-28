@@ -1,5 +1,14 @@
-ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+@import "../theme/variables.scss";
+
+ion-menu {
+  // --background: var(--ion-item-background, var(--ion-background-color, #fff));
+  ion-list {
+    background: var(--primary);
+  }
+}
+
+ion-label {
+  color: var(--light);
 }
 
 ion-menu.md ion-content {

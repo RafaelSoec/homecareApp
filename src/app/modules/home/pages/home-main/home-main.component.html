@@ -1,0 +1,47 @@
+<div>
+  <div class="p-1 d-flex justify-content-between">
+    <div class="form-inline">
+      <ion-avatar>
+        <img src="../assets/img/logo-care.jpeg" />
+      </ion-avatar>
+      <div>
+        <ion-label class="">Olá, {{ client.name }}</ion-label
+        ><br />
+        <small>Como você está?</small>
+      </div>
+    </div>
+    <div class="mt-4 mr-2">
+      <app-icon
+        width="20px"
+        height="20px"
+        color="primary"
+        [icon]="notification"
+      ></app-icon>
+    </div>
+  </div>
+  <div class="p-2">
+    <app-search
+      placeholder="Pesquise uma especialidade"
+      class="mb-4"
+      (find)="find($event)"
+    ></app-search>
+    <div class="mt-4 row justify-content-center">
+      <h6 class="col-12"><b>Especialidades populares</b></h6>
+      <ion-card
+        *ngFor="let card of filteredCards"
+        class="col-5 text-center"
+        [color]="card.color"
+      >
+        <ion-card-content class="p-4">
+          <app-icon
+            width="30px"
+            height="30px"
+            color="light"
+            [icon]="card.icon"
+          ></app-icon>
+          <p>{{ card.name }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</div>

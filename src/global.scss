@@ -27,9 +27,8 @@
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
-@import "./theme/colors.scss";
+@import "./theme/variables.scss";
 
 .img-circular {
   border-radius: 50%;
-  background: blue;
 }

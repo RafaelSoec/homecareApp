@@ -1,0 +1,11 @@
+@import "../../../../../theme/variables.scss";
+
+.success {
+  color: var(--success);
+}
+.warning {
+  color: var(--warning);
+}
+.danger {
+  color: var(--danger);
+}

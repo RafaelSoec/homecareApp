@@ -1,8 +1,9 @@
-export enum AppRoutesEnum{
-  FULL  =   "full",
-  HOME  =  "home",
-  LOGIN =  "login",
-  NONE  =   "",
-  SECURITY =  "security",
-
+export enum AppRoutesEnum {
+  FIND = 'find',
+  FULL = 'full',
+  HOME = 'home',
+  LOGIN = 'login',
+  NONE = '',
+  PREFIX = 'prefix',
+  SECURITY = 'security',
 }

@@ -7,8 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrMaskerModule } from 'br-mask';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,8 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     IonicModule.forRoot(),
     BrMaskerModule,
-    FormsModule,
-    ReactiveFormsModule,
+
+    SharedModule,
   ],
   exports: [],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

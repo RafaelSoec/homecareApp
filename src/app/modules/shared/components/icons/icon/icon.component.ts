@@ -9,21 +9,23 @@ export class IconComponent implements OnInit {
   @Input('icon')
   public icon: string;
 
-  @Input('cor')
-  public cor: string;
+  @Input('color')
+  public color: string = '';
 
-  @Input('altura')
-  public altura: string = '15px';
+  @Input('height')
+  public height: string = '15px';
 
-  @Input('largura')
-  public largura: string = '15px';
+  @Input('width')
+  public width: string = '15px';
 
-  public estilo = {};
+  public stilez = {};
 
   constructor() {}
+
   ngOnInit(): void {
-    if (this.icon) {
-      this.estilo = { width: this.largura, height: this.altura };
+    //verificar se a cor enviada é uma cor valida ou uma variavel no sistema de variaveis de cores.
+    if (!this.color.includes('#')) {
+      this.color = 'var(--' + this.color + ')';
     }
   }
 }

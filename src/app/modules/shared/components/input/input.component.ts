@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { Messages } from '../../models/constants/Messages';
+import { RegexUtils } from '../../models/constants/util/RegexUtils';
+import { Validation } from '../../models/interfaces/Validation';
 
 @Component({
   selector: 'app-input',
@@ -19,6 +22,9 @@ export class InputComponent implements OnInit {
   @Input('required')
   public required: boolean = false;
 
+  @Input('validation')
+  public validation: Validation = { validate: false, text: null };
+
   @Input('type')
   public type: string = 'text';
 
@@ -28,22 +34,45 @@ export class InputComponent implements OnInit {
   @Input('value')
   public value: any = null;
 
+  @Input('formController')
+  public formController: FormControl = null;
+
+  @Input('fontSize')
+  public fontSize: number = 14;
+
   @Output() valueChange = new EventEmitter<any>();
 
   public typeToogle: boolean = false;
-  public form: FormGroup;
 
-  constructor(private _builder: FormBuilder) {}
+  constructor() {}
 
   ngOnInit() {
-    // if (this.type == 'mail') {
-    //   this.form = this._builder.group({
-    //     mail: [{ value: this.value, disabled: true }, Validators.email],
-    //   });
-    // }
+    // this.valueChange.emit(this.value);
+    if (this.formController) {
+      this.value = this.formController.value;
+    }
   }
 
-  public emitVal() {
+  public setForm(): void {
+    if (this.formController) {
+      this.formController.setValue(this.value);
+      this.readonly = this.formController.disabled;
+      this.validation.validate = this.formController.valid;
+    }
+  }
+
+  public emitVal(): void {
+    this.setForm();
     this.valueChange.emit(this.value);
+    this.makeValidations();
+  }
+
+  public makeValidations(): void {
+    switch (this.type) {
+      case 'mail':
+        this.validation.validate = RegexUtils.testMail(this.value);
+        this.validation.text = Messages.INVALID_MAIL;
+        break;
+    }
   }
 }

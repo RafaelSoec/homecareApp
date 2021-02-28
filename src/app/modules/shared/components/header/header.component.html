@@ -1,0 +1,21 @@
+<ion-header [translucent]="false" *ngIf="dataHeader">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" *ngIf="dataHeader.goBack" class="p-2">
+      <app-icon icon="angle-left" (click)="dataHeader.goBack()"></app-icon>
+    </ion-buttons>
+    <ion-buttons slot="end" class="form-inline" class="p-2">
+      <app-icon
+        *ngIf="dataHeader.firstIcon && dataHeader.firstIcon.show"
+        [icon]="dataHeader.firstIcon.name"
+        (click)="activeCallback(dataHeader.firstIcon.callback)"
+      ></app-icon>
+      <app-icon
+        *ngIf="dataHeader.secondIcon && dataHeader.secondIcon.show"
+        [icon]="dataHeader.secondIcon.name"
+        (click)="activeCallback(dataHeader.secondIcon.callback)"
+      ></app-icon>
+      <ion-menu-button *ngIf="dataHeader.showMenuIcon"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ dataHeader.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>

@@ -5,14 +5,13 @@ import { AppRoutesEnum } from './modules/shared/models/enums/AppRoutesEnum';
 const routes: Routes = [
   {
     path: AppRoutesEnum.NONE,
-    // redirectTo: 'folder/Inbox',
     redirectTo: AppRoutesEnum.SECURITY,
     pathMatch: AppRoutesEnum.FULL,
   },
   {
     path: AppRoutesEnum.HOME,
     loadChildren: () =>
-      import('./folder/folder.module').then((m) => m.FolderPageModule),
+      import('./modules/home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: AppRoutesEnum.SECURITY,

@@ -2,15 +2,152 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
-@import "./colors.scss";
+// CORES PRINCIPAIS
 
 $colors: (
-  primary: $primary,
-  secondary: $secondary,
-  danger: $danger,
-  light: $light,
-  dark: $dark,
-  success: $success,
-  warnning: $warning,
-  gray: $gray,
+  primary: #005ca9,
+  secondary: #3dc2ff,
+  danger: #eb445a,
+  light: #ffffff,
+  dark: #1f3033,
+  success: #2dd36f,
+  warnning: #ffc409,
+  violet: #5260ff,
+  gray: #92949c,
+  alert: #e9e51d,
 );
+
+:root {
+  --primary: #005ca9;
+  --primary-strong: #1047df;
+  --primary-weak: #004c8c;
+
+  --secondary: #3dc2ff;
+  --secondary-strong: #36abe0;
+  --secondary-weak: #50c8ff;
+
+  --light: #ffffff;
+  --light-strong: #ffffff;
+  --light-weak: #f3f5f9;
+
+  --danger: #eb445a;
+  --danger-strong: #cf3c4f;
+  --danger-weak: #ed576b;
+
+  --gray: #92949c;
+  --gray-strong: #808289;
+  --gray-weak: #9d9fa6;
+
+  /** tertiary **/
+  --violet: #5260ff;
+  --violet-strong: #4854e0;
+  --violet-weak: #6370ff;
+
+  /** success **/
+  --success: #2dd36f;
+  --success-shade: #28ba62;
+  --success-tint: #42d77d;
+
+  /** warning **/
+  --warning: #ffc409;
+  --warning-shade: #e0ac08;
+  --warning-tint: #ffca22;
+
+  --alert: #e9e51d;
+  --alert-shade: #cac70f;
+  --alert-tint: #f5f258;
+
+  --text: #1f3033;
+  --dark: #1f3033;
+
+  // GRADIENTES /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  --gradiente-azul-caixa: linear-gradient(
+    14.28deg,
+    #00a2cd 27.43%,
+    #0066a6 86.17%
+  );
+  --gradiente-header-caixa: linear-gradient(
+    251.13deg,
+    #00a2cd 24.32%,
+    #0066a6 79.58%
+  );
+
+  --ion-color-alert: var(--alert);
+  --ion-color-alert-rgb: 56, 128, 255;
+  --ion-color-alert-contrast: var(--light);
+  --ion-color-alert-contrast-rgb: 255, 255, 255;
+  --ion-color-alert-shade: var(--alert-strong);
+  --ion-color-alert-tint: var(--alert-weak);
+
+  /** primary **/
+  --ion-color-primary: var(--primary);
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: var(--light);
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: var(--primary-strong);
+  --ion-color-primary-tint: var(--primary-weak);
+
+  /** secondary **/
+  --ion-color-secondary: var(--secondary);
+  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary-contrast: var(--light);
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: var(--secondary-strong);
+  --ion-color-secondary-tint: var(--secondary-weak);
+
+  /** tertiary **/
+  --ion-color-tertiary: var(--violet);
+  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary-contrast: var(--light);
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: var(--violet-strong);
+  --ion-color-tertiary-tint: var(--violet-weak);
+
+  /** success **/
+  --ion-color-success: var(--success);
+  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success-contrast: var(--light);
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: var(--success-strong);
+  --ion-color-success-tint: var(--success-weak);
+
+  /** warning **/
+  --ion-color-warning: var(--warning);
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: var(--dark);
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: var(--warning-strong);
+  --ion-color-warning-tint: var(--warning-weak);
+
+  /** danger **/
+  --ion-color-danger: var(--red);
+  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger-contrast: var(--light);
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: var(--red-strong);
+  --ion-color-danger-tint: var(--red-weak);
+
+  /** dark **/
+  --ion-color-dark: var(--dark);
+  --ion-color-dark-rgb: 34, 36, 40;
+  --ion-color-dark-contrast: var(--light);
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: var(--dark);
+  --ion-color-dark-tint: var(--dark);
+
+  /** medium **/
+  --ion-color-medium: var(--gray);
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: var(--light);
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: var(--gray-strong);
+  --ion-color-medium-tint: var(--gray-weak);
+
+  /** light **/
+  --ion-color-light: var(--light);
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: var(--dark);
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: var(--light-strong);
+  --ion-color-light-tint: var(--light-weak);
+}
