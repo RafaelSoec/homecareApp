@@ -1,0 +1,15 @@
+<div class="">
+  <h3 class="mt-4">
+    <b>{{ surname | titlecase }}</b
+    >, é um prazer saber seu nome. Quando você nasceu?
+  </h3>
+  <app-input
+    class="col-12"
+    type="date"
+    [min]="minDate"
+    [max]="maxDate"
+    background="primary"
+    color="light"
+    [formController]="form.controls['birthday']"
+  ></app-input>
+</div>

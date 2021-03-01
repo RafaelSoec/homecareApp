@@ -16,12 +16,14 @@
       class="col-12"
       type="mail"
       label="Email"
+      position="floating"
       [(formController)]="form.controls['mail']"
     ></app-input>
     <app-input
       class="col-12"
       type="password"
       label="Senha"
+      position="floating"
       [(formController)]="form.controls['password']"
     ></app-input>
     <app-text-msg
@@ -38,7 +40,7 @@
       <small class="col-12">Esqueceu a senha?</small>
       <small class="col-12 mt-4"
         >Ainda não tem uma conta?
-        <a [routerLink]="['/register']">Criar conta</a>
+        <a [routerLink]="['/register']"> Criar conta </a>
       </small>
     </div>
   </app-footer>

@@ -1,5 +1,5 @@
 <ion-header [translucent]="false" *ngIf="dataHeader">
-  <ion-toolbar color="primary">
+  <ion-toolbar [color]="dataHeader.color">
     <ion-buttons slot="start" *ngIf="dataHeader.goBack" class="p-2">
       <app-icon icon="angle-left" (click)="dataHeader.goBack()"></app-icon>
     </ion-buttons>

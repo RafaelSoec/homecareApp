@@ -61,16 +61,10 @@ $colors: (
   --dark: #1f3033;
 
   // GRADIENTES /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  --gradiente-azul-caixa: linear-gradient(
-    14.28deg,
-    #00a2cd 27.43%,
-    #0066a6 86.17%
-  );
-  --gradiente-header-caixa: linear-gradient(
-    251.13deg,
-    #00a2cd 24.32%,
-    #0066a6 79.58%
-  );
+
+  --gradient-main: linear-gradient(to top, #005bea, #00c6fb 100%);
+  --gradient-primary: linear-gradient(to right, #4facfe, #00f2fe);
+  --gradient-header: linear-gradient(251.13deg, #00a2cd 24.32%, #0066a6 79.58%);
 
   --ion-color-alert: var(--alert);
   --ion-color-alert-rgb: 56, 128, 255;

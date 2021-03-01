@@ -4,6 +4,7 @@ export class Header {
   firstIcon?: HeaderIcon = null;
   secondIcon?: HeaderIcon = null;
   showMenuIcon?: boolean = true;
+  color?: string = null;
 
   constructor() {}
 
@@ -13,6 +14,7 @@ export class Header {
     let firstIcon: HeaderIcon;
     let secondIcon: HeaderIcon;
     let showMenuIcon: boolean = true;
+    let color: string = 'primary';
 
     return {
       title(title1: string) {
@@ -35,6 +37,10 @@ export class Header {
         showMenuIcon = showMenuIcon1;
         return this;
       },
+      color(color1: string) {
+        color = color1;
+        return this;
+      },
       build: function () {
         let header = new Header();
         header.title = title;
@@ -42,6 +48,7 @@ export class Header {
         header.firstIcon = firstIcon;
         header.secondIcon = secondIcon;
         header.showMenuIcon = showMenuIcon;
+        header.color = color;
 
         return header;
       },

@@ -1,5 +1,7 @@
-<ion-item [ngStyle]="{ fontSize: fontSize + 'px' }">
-  <ion-label position="floating">{{ label }}</ion-label>
+<ion-item lines="none" [ngStyle]="stylezz" [color]="background">
+  <ion-label *ngIf="label" [style.color]="color" [position]="position">{{
+    label
+  }}</ion-label>
   <ng-container [ngSwitch]="type">
     <ion-input
       *ngSwitchCase="'cpf'"
@@ -9,6 +11,7 @@
       [readonly]="readonly"
       [(ngModel)]="value"
       [maxlength]="14"
+      [minlength]="14"
       [brmasker]="{ mask: '000.000.000-00', type: 'num' }"
     ></ion-input>
     <ion-input
@@ -19,6 +22,7 @@
       [readonly]="readonly"
       [(ngModel)]="value"
       [maxlength]="9"
+      [minlength]="9"
       [brmasker]="{ mask: '00.000-000', type: 'num' }"
     ></ion-input>
     <ion-input
@@ -30,6 +34,7 @@
       [(ngModel)]="value"
       [type]="typeToogle ? 'text' : 'password'"
       [maxlength]="maxlength"
+      [minlength]="minlength"
     ></ion-input>
     <ion-input
       *ngSwitchCase="'money'"
@@ -55,6 +60,7 @@
       [(ngModel)]="value"
       [type]="type"
       [maxlength]="maxlength"
+      [minlength]="minlength"
       [brmasker]="{ phone: true }"
     ></ion-input>
     <ion-datetime
@@ -63,21 +69,36 @@
       (ionChange)="emitVal()"
       cancelText="Sair"
       doneText="Salvar"
-      min="1900-01-01"
-      max="2200-01-01"
+      [min]="min"
+      [max]="max"
       [(ngModel)]="value"
     ></ion-datetime>
 
-    <ion-input
-      *ngSwitchDefault
-      (ionChange)="emitVal()"
-      [id]="id"
-      [required]="required"
-      [readonly]="readonly"
-      [(ngModel)]="value"
-      [type]="type"
-      [maxlength]="maxlength"
-    ></ion-input>
+    <ng-container *ngSwitchDefault>
+      <ion-input
+        *ngIf="mask"
+        (ionChange)="emitVal()"
+        [id]="id"
+        [required]="required"
+        [readonly]="readonly"
+        [(ngModel)]="value"
+        [type]="type"
+        [brmasker]="mask"
+        [maxlength]="maxlength"
+        [minlength]="minlength"
+      ></ion-input>
+      <ion-input
+        *ngIf="!mask"
+        (ionChange)="emitVal()"
+        [id]="id"
+        [required]="required"
+        [readonly]="readonly"
+        [(ngModel)]="value"
+        [type]="type"
+        [maxlength]="maxlength"
+        [minlength]="minlength"
+      ></ion-input>
+    </ng-container>
   </ng-container>
 </ion-item>
 <ion-toggle

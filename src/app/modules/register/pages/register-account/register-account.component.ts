@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Header } from 'src/app/modules/shared/models/classes/util/Header';
 import { AppRoutesEnum } from 'src/app/modules/shared/models/enums/AppRoutesEnum';
-import { Validation } from 'src/app/modules/shared/models/interfaces/Validation';
 import { HeaderService } from 'src/app/modules/shared/services/HeaderService';
 
 @Component({
@@ -13,17 +12,25 @@ import { HeaderService } from 'src/app/modules/shared/services/HeaderService';
 })
 export class RegisterAccountComponent implements OnInit {
   public form: FormGroup;
-  public validation: Validation = { validate: true, text: '' };
+  public selectedStep: number = 1;
+  public valid: boolean = false;
 
   constructor(
     private _headerService: HeaderService,
     private _builder: FormBuilder,
+    private _route: ActivatedRoute,
     private _router: Router
   ) {
     this._setForm();
   }
 
   ngOnInit(): void {
+    this._route.queryParams.subscribe((params) => {
+      if (params['passo']) {
+        this.selectedStep = params['passo'];
+      }
+    });
+
     this._setHeader();
   }
 
@@ -41,13 +48,29 @@ export class RegisterAccountComponent implements OnInit {
 
   private _setForm() {
     this.form = this._builder.group({
-      mail: [null, [Validators.required]],
-      nome: [null, [Validators.required]],
-      dataNascimento: [null, [Validators.required]],
+      mail: [null, [Validators.required, Validators.email]],
+      name: [null, [Validators.required, Validators.minLength(10)]],
+      birthday: [null, [Validators.required]],
     });
   }
 
   public goBack() {
-    this._router.navigate([AppRoutesEnum.SECURITY]);
+    if (this.selectedStep <= 1) {
+      this._router.navigate([AppRoutesEnum.SECURITY]);
+    } else {
+      this.selectedStep--;
+    }
+  }
+
+  public register() {
+    if (this.selectedStep != 4) {
+      this.selectedStep++;
+    } else {
+      this._router.navigate([AppRoutesEnum.SECURITY]);
+    }
+  }
+
+  public validate(valid: boolean) {
+    this.valid = valid;
   }
 }

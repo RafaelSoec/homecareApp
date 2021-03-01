@@ -2,10 +2,12 @@
 
 ion-item {
   color: var(--primary);
+  // border: 1px solid black !important;
 }
 
 ion-toggle {
   margin-top: -25px;
+  margin-right: 5px;
   width: 35px;
   height: 15px;
   border-radius: 10px;

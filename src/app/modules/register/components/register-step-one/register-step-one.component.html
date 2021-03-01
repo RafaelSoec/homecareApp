@@ -1,0 +1,15 @@
+<div class="">
+  <h3 class="mt-4">
+    Olá, seja bem vindo ao vindo ao
+    <b>{{ appName }}.</b><br /><br /><br />
+    Precisamos te conhecer um pouquinho. Escreve aí o seu nome.
+  </h3>
+  <app-input
+    class="col-12"
+    type="text"
+    background="primary"
+    color="light"
+    textTransform="uppercase"
+    [(formController)]="form.controls['name']"
+  ></app-input>
+</div>
